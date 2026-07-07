@@ -1,0 +1,87 @@
+.glowBg {
+  position: absolute;
+  inset: -20% -20%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(255, 47, 208, 0.14),
+    transparent 60%
+  );
+  filter: blur(20px);
+  animation: glowMove 12s ease-in-out infinite;
+}
+
+@keyframes glowMove {
+  0%,
+  100% {
+    transform: translate(-8%, -8%);
+  }
+  33% {
+    transform: translate(14%, 8%);
+  }
+  66% {
+    transform: translate(-4%, 14%);
+  }
+}
+
+.empty {
+  border: 1px dashed var(--border-soft);
+  border-radius: 16px;
+  padding: 50px 24px;
+  text-align: center;
+  background: rgba(124, 58, 237, 0.04);
+}
+
+.emptyIcon {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: var(--purple-neon);
+  margin-bottom: 14px;
+}
+
+.emptyText {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: rgba(124, 58, 237, 0.06);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 22px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple-neon);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cardMeta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

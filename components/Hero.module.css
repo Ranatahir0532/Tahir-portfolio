@@ -1,0 +1,234 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 140px 24px 80px;
+  position: relative;
+}
+
+.glowBg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+      circle at 50% 30%,
+      rgba(176, 38, 255, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(circle at 80% 70%, rgba(255, 47, 208, 0.08), transparent 50%);
+}
+
+.badgeWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform-origin: top center;
+  animation: swing 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.strap {
+  position: relative;
+  width: 26px;
+  height: 50px;
+  background: linear-gradient(180deg, var(--purple-neon), var(--purple-primary));
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 0 10px rgba(176, 38, 255, 0.4);
+}
+
+.clip {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 10px;
+  border-radius: 3px;
+  background: linear-gradient(160deg, #d8d8e0, #8b8b96);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.badgeCard {
+  position: relative;
+  width: min(230px, 78vw);
+  background: linear-gradient(165deg, #1c0a38, #0a0512);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 20px 18px 22px;
+  box-shadow: 0 0 30px 2px rgba(176, 38, 255, 0.3),
+    0 0 70px 10px rgba(255, 47, 208, 0.1);
+}
+
+.grommet {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #07050c;
+  border: 2px solid #8b8b96;
+}
+
+.photoArea {
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 14px;
+  border: 1px solid var(--border-soft);
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.badgeInfo {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.badgeName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--text-light);
+}
+
+.badgeRole {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--purple-neon);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+.badgeDivider {
+  height: 1px;
+  margin: 12px 0 10px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-soft) 20%,
+    var(--border-soft) 80%,
+    transparent
+  );
+}
+
+.badgeId {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+}
+
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(-3.5deg);
+  }
+  50% {
+    transform: rotate(3.5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badgeWrap {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple-neon);
+  margin-bottom: 14px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.tagline {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-dim);
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: var(--text-light);
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--purple-neon), var(--pink-neon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--purple-neon);
+  animation: blink 0.9s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.ctaRow {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 28px;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.ctaPrimary {
+  background: linear-gradient(90deg, var(--purple-primary), var(--purple-neon));
+  color: #fff;
+  box-shadow: 0 0 18px rgba(176, 38, 255, 0.35);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(176, 38, 255, 0.55);
+}
+
+.ctaSecondary {
+  border: 1px solid var(--border-soft);
+  color: var(--text-light);
+}
+
+.ctaSecondary:hover {
+  transform: translateY(-2px);
+  background: rgba(176, 38, 255, 0.08);
+  border-color: var(--purple-neon);
+}

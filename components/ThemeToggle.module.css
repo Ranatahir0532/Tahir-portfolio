@@ -1,0 +1,32 @@
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.toggleBtn:hover {
+  transform: scale(1.12) rotate(25deg);
+  border-color: var(--purple-neon);
+}
+
+.swatch {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--purple-neon),
+    var(--pink-neon),
+    var(--purple-primary),
+    var(--purple-neon)
+  );
+  transition: background 0.3s ease;
+}
