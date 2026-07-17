@@ -2,15 +2,17 @@ import styles from "./Certificates.module.css";
 import Reveal from "./Reveal";
 
 /*
-  Add your certificates here. Each entry can be as simple as:
-  { title: "Certificate Name", issuer: "Issuing Platform", date: "2026", fileUrl: "/certificates/your-file.pdf" }
-  Put the certificate file itself in /public/certificates.
+  Add your certificates here. Each entry needs:
+  - image: a preview picture of the certificate, placed in /public/certificates
+  - fileUrl: the actual file (PDF or image) to open when clicked
+  Add both files to /public/certificates, then add an entry below.
 */
 const CERTIFICATES = [
   {
     title: "Learn Python 3 - Free Interactive Course",
     issuer: "Educative",
     date: "Jul 2026",
+    image: "/certificates/learn-python-3.png",
     fileUrl: "/certificates/learn-python-3.pdf",
   },
 ];
@@ -41,22 +43,27 @@ export default function Certificates() {
         <div className={styles.grid}>
           {CERTIFICATES.map((c, i) => (
             <Reveal key={c.title} delay={i * 100}>
-              <div className={styles.card}>
-                <h3 className={styles.cardTitle}>{c.title}</h3>
-                <p className={styles.cardMeta}>
-                  {c.issuer} · {c.date}
-                </p>
-                {c.fileUrl && (
-                  <a
-                    href={c.fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.viewBtn}
-                  >
-                    View Certificate →
-                  </a>
-                )}
-              </div>
+              <a
+                href={c.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.card}
+              >
+                <div className={styles.imageWrap}>
+                  <img
+                    src={c.image}
+                    alt={c.title}
+                    className={styles.certImage}
+                  />
+                  <span className={styles.viewOverlay}>View Full Size →</span>
+                </div>
+                <div className={styles.cardBody}>
+                  <h3 className={styles.cardTitle}>{c.title}</h3>
+                  <p className={styles.cardMeta}>
+                    {c.issuer} · {c.date}
+                  </p>
+                </div>
+              </a>
             </Reveal>
           ))}
         </div>
