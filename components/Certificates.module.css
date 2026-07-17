@@ -80,6 +80,28 @@
   color: var(--text-dim);
 }
 
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--purple-neon);
+  padding: 8px 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  transition: border-color 0.25s ease, background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.viewBtn:hover {
+  border-color: var(--purple-neon);
+  background: rgba(176, 38, 255, 0.08);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;

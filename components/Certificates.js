@@ -3,11 +3,17 @@ import Reveal from "./Reveal";
 
 /*
   Add your certificates here. Each entry can be as simple as:
-  { title: "Certificate Name", issuer: "Issuing Platform", date: "2026" }
-  Once you have images, swap the placeholder icon for:
-  <img src="/certificates/your-file.jpg" alt={title} className={styles.certImg} />
+  { title: "Certificate Name", issuer: "Issuing Platform", date: "2026", fileUrl: "/certificates/your-file.pdf" }
+  Put the certificate file itself in /public/certificates.
 */
-const CERTIFICATES = [];
+const CERTIFICATES = [
+  {
+    title: "Learn Python 3 - Free Interactive Course",
+    issuer: "Educative",
+    date: "Jul 2026",
+    fileUrl: "/certificates/learn-python-3.pdf",
+  },
+];
 
 export default function Certificates() {
   return (
@@ -40,6 +46,16 @@ export default function Certificates() {
                 <p className={styles.cardMeta}>
                   {c.issuer} · {c.date}
                 </p>
+                {c.fileUrl && (
+                  <a
+                    href={c.fileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.viewBtn}
+                  >
+                    View Certificate →
+                  </a>
+                )}
               </div>
             </Reveal>
           ))}
