@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import styles from "./Certificates.module.css";
 import Reveal from "./Reveal";
 
@@ -18,6 +21,8 @@ const CERTIFICATES = [
 ];
 
 export default function Certificates() {
+  const [failedImages, setFailedImages] = useState({});
+
   return (
     <section id="certificates" className="section">
       <div className={styles.glowBg} aria-hidden="true" />
@@ -50,11 +55,23 @@ export default function Certificates() {
                 className={styles.card}
               >
                 <div className={styles.imageWrap}>
-                  <img
-                    src={c.image}
-                    alt={c.title}
-                    className={styles.certImage}
-                  />
+                  {failedImages[c.title] ? (
+                    <div className={styles.imageFallback}>
+                      Preview unavailable — click to open certificate
+                    </div>
+                  ) : (
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      className={styles.certImage}
+                      onError={() =>
+                        setFailedImages((prev) => ({
+                          ...prev,
+                          [c.title]: true,
+                        }))
+                      }
+                    />
+                  )}
                   <span className={styles.viewOverlay}>View Full Size →</span>
                 </div>
                 <div className={styles.cardBody}>
