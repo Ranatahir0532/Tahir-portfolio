@@ -20,7 +20,7 @@ export default function Contact() {
 
         <div className={styles.socials}>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:tahirhassannasruddin@gmail.com"
             className={styles.socialBtn}
             aria-label="Email"
           >
@@ -39,7 +39,7 @@ export default function Contact() {
           </a>
 
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/tahir-hussain-7a6355375?utm_source=share_via&utm_content=profile&utm_medium=member_android"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialBtn}
@@ -57,7 +57,7 @@ export default function Contact() {
           </a>
 
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/tahirhassannasruddin?igsh=MWJoeWhhZm90bWF5eA=="
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialBtn}
