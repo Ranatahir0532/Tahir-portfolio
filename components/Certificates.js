@@ -18,6 +18,13 @@ const CERTIFICATES = [
     image: "/certificates/learn-python-3.png",
     fileUrl: "/certificates/learn-python-3.pdf",
   },
+  {
+    title: "Special Mention Award — The Grand Debate 2025",
+    issuer: "FAST NUCES Karachi",
+    date: "Nov 2025",
+    image: "/certificates/special-mention-debate.jpg",
+    fileUrl: "/certificates/special-mention-debate.pdf",
+  },
 ];
 
 export default function Certificates() {
